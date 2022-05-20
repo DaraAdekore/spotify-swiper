@@ -17,7 +17,8 @@ function App() {
   const [token, setToken] = useState('')
   const [searchKey, setSearchKey] = useState('')
   const [songs, setSongs] = useState([])
-  var audioPlayer = new Audio()
+  var rendered = false
+
   useEffect(() => {
     const hash = window.location.hash
     let token = window.localStorage.getItem("token")
@@ -35,9 +36,10 @@ function App() {
     }
     setToken(token)
   }, [])
-
   const logout = () => {
     setToken('')
+    rendered = false
+    console.log(rendered)
     window.localStorage.removeItem('token')
   }
 
@@ -55,25 +57,16 @@ function App() {
     })
     setSongs(data.tracks.items)
   }
-  const renderPrompt = () => {
-    return (
-        <h3 id='prompt'>this one will play 
-        <br></br>
-        (intended feature)</h3>
-    )
-  }
 
-  function playSound(url) {
-    audioPlayer.src = url
-    audioPlayer.play()
-  }
   const renderSongs = (token) => {
+    rendered = true;
+    console.log(rendered)
     return token ? songs.map(song => (
       <>
         <SwiperSlide>
           <div >
-            {song.album.images.length ? <img onClick={playSound(song.preview_url)} width={"100%"} src={song.album.images[0].url} alt='' /> : <div>No Image</div>}
-            
+            {song.album.images.length ? <img width={"100%"} src={song.album.images[0].url} alt='' /> : <div>No Image</div>}
+            <audio src={song.preview_url} type="mp3" controls></audio>
             <p>
               {song.name}
               <br></br>
@@ -90,23 +83,23 @@ function App() {
       null
   }
 
-    return (
+  return (
     <div className="App">
       <header className="App-header">
         <>
-        <a href='https://github.com/DaraAdekore' id="logo"><h1 >Dara</h1></a>
+          <a href='https://github.com/DaraAdekore' id="logo"><h1 >Dara</h1></a>
           <div>
             <h1 id="header">Spotify With React</h1>
-          <img src='https://i.imgur.com/Eo2zVse.png'></img>
+            <img src='https://i.imgur.com/Eo2zVse.png'></img>
           </div>
-          
-          
+
+
           {!token ?
 
             <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login to spotify</a>
             :
             <button onClick={logout}>Logout </button>
-            
+
           }
           {
             token ?
@@ -119,8 +112,6 @@ function App() {
               :
               <h2>Please login</h2>
           }
-          
-
 
         </>
         <Swiper
@@ -134,7 +125,9 @@ function App() {
           onSlideChange={() => console.log('slide change')}
           pagination={{
             dynamicBullets: true,
-          }}
+          }
+
+          }
           className="mySwiper"
         >
 
@@ -142,8 +135,16 @@ function App() {
             renderSongs(token)
           }
         </Swiper>
+
+        {
+          rendered ?
+            <h3 id='prompt'>this one will play<br></br>
+              (intended feature)</h3>
+              :
+              null
+        }
       </header>
-      
+
     </div>
   );
 
