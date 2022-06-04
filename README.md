@@ -5,3 +5,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # spotify-swiper
 React based Application that allows for swiping amongst results.
+
+## Search for your favourite artist or songs
+![Get up to 50 results](https://i.imgur.com/SwXcuz2.png)
