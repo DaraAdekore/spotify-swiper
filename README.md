@@ -3,7 +3,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), [SwiperJS](https://swiperjs.com/) and [Spotify](https://developer.spotify.com/documentation/web-api/).
 
-<img src="https://i.imgur.com/xe4URa1.png" alt="drawing" width="200" height="200"/>
+<img src="https://i.imgur.com/xe4URa1.png" alt="drawing" width="400" height="200"/>
 <img src="https://i.imgur.com/eJjQBMP.png" alt="drawing" width="200" height="200"/>
 <img src="https://i.imgur.com/p9lW54V.png" alt="drawing" width="200" height="200"/>
 # spotify-swiper
