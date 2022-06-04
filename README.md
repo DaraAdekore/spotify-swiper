@@ -8,3 +8,6 @@ React based Application that allows for swiping amongst results.
 
 ## Search for your favourite artist or songs
 ![Get up to 50 results](https://i.imgur.com/SwXcuz2.png)
+
+![Get up to 50 results](https://i.imgur.com/ag06cyY.png)
+
