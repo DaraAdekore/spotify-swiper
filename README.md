@@ -3,6 +3,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), [SwiperJS](https://swiperjs.com/) and [Spotify](https://developer.spotify.com/documentation/web-api/).
 
+![Get up to 50 results](https://i.imgur.com/eJjQBMP.png)
+
+![Get up to 50 results](https://i.imgur.com/xe4URa1.png)
+
+![Get up to 50 results](https://i.imgur.com/p9lW54V.png)
 # spotify-swiper
 React based Application that allows for swiping amongst results.
 
