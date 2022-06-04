@@ -1,7 +1,7 @@
 {
   "name": "spotify-react",
   "version": "0.1.0",
-  "homepage": "https://deployment-master.vercel.app/",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
