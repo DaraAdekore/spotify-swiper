@@ -17,8 +17,8 @@ function App() {
   const [token, setToken] = useState('')
   const [searchKey, setSearchKey] = useState('')
   const [songs, setSongs] = useState([])
-  var rendered = false
 
+  
   useEffect(() => {
     const hash = window.location.hash
     let token = window.localStorage.getItem("token")
@@ -38,12 +38,12 @@ function App() {
   }, [])
   const logout = () => {
     setToken('')
-    rendered = false
-    console.log(rendered)
+    setSongs([])
     window.localStorage.removeItem('token')
   }
 
   const searchArtists = async (e) => {
+    setSongs([])
     e.preventDefault()
     const { data } = await axios.get('https://api.spotify.com/v1/search', {
       headers: {
@@ -57,16 +57,21 @@ function App() {
     })
     setSongs(data.tracks.items)
   }
+  const showPrompt = () => {
+    return (
+      
+      <p id='prompt'>If there's a preview <br></br>Click this one to play the preview !</p>
 
+    )
+  }
   const renderSongs = (token) => {
-    rendered = true;
-    console.log(rendered)
     return token ? songs.map(song => (
       <>
         <SwiperSlide>
           <div >
             {song.album.images.length ? <img width={"100%"} src={song.album.images[0].url} alt='' /> : <div>No Image</div>}
-            <audio src={song.preview_url} type="mp3" controls></audio>
+            {song.preview_url ? <audio src={song.preview_url} type="mp3" controls></audio> : null}
+            
             <p>
               {song.name}
               <br></br>
@@ -89,7 +94,7 @@ function App() {
         <>
           <a href='https://github.com/DaraAdekore' id="logo"><h1 >Dara</h1></a>
           <div>
-            <h1 id="header">Spotify With React</h1>
+            <h1 id="header">Spotify swipe With React</h1>
             <img src='https://i.imgur.com/Eo2zVse.png'></img>
           </div>
 
@@ -105,46 +110,32 @@ function App() {
             token ?
 
               <form onSubmit={searchArtists}>
-                <input type='text' onChange={e => setSearchKey(e.target.value)} />
+                <input type='text' onChange={e => setSearchKey(e.target.value)} placeholder='search for a song or artist' />
                 <button type='{submit}'>Search</button>
               </form>
-
+              
               :
               <h2>Please login</h2>
           }
-
+        { songs.length? showPrompt(): null}
         </>
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={50}
-          slidesPerView={5}
+          slidesPerView={6}
           navigation
+          pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
-          pagination={{
-            dynamicBullets: true,
-          }
-
-          }
-          className="mySwiper"
         >
-
           {
             renderSongs(token)
           }
         </Swiper>
 
-        {
-          rendered ?
-            <h3 id='prompt'>this one will play<br></br>
-              (intended feature)</h3>
-              :
-              null
-        }
       </header>
-
     </div>
   );
 
