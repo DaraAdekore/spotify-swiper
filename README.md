@@ -1,6 +1,18 @@
-﻿# spotify-react
 
-A miniature project made to practice react and the utilization of REST APIs. 
-This application while not ready for production by any means is a creative project meant to learn more about the intricacies of React and use the spotify API.
+# Getting Started with Swipe with Spotify App
 
-The user is able to search up any song or artist they would like and the application will return the top 50 results that match the query.
+This project was bootstrapped with [React](https://github.com/facebook/create-react-app), [SwiperJS](https://swiperjs.com/) and [Spotify](https://developer.spotify.com/documentation/web-api/).
+<div display="flex">
+  <img src="https://i.imgur.com/xe4URa1.png" alt="drawing" width="600" height="200"/>
+<img src="https://i.imgur.com/eJjQBMP.png" alt="drawing" width="200" height="200"/>
+<img src="https://i.imgur.com/p9lW54V.png" alt="drawing" width="200" height="200"/>
+</div>
+
+# spotify-swiper
+React based Application that allows for swiping amongst results.
+
+## Search for your favourite artist or songs
+![Get up to 50 results](https://i.imgur.com/UTS1TAl.png)
+
+![Get up to 50 results](https://i.imgur.com/PV1DkvY.png)
+
