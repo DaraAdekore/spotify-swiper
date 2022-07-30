@@ -9,8 +9,8 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 
 function App() {
-  const CLIENT_ID = '914560b878e3419db0e348ed3b09dacd'
-  const REDIRECT_URI = 'http://localhost:3000'
+  const CLIENT_ID = 'YOUR_CLIENT_ID'
+  const REDIRECT_URI = 'https://swipewithspotify.vercel.app/'
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
   const RESPONSE_TYPE = 'token'
 
@@ -95,7 +95,7 @@ function App() {
           <a href='https://github.com/DaraAdekore' id="logo"><h1 >Dara</h1></a>
           <div>
             <h1 id="header">Spotify swipe With React</h1>
-            <img src='https://i.imgur.com/Eo2zVse.png'></img>
+            <img src='https://i.imgur.com/xe4URa1.png' alt='drawing' width={600} height="200"></img>
           </div>
 
 
